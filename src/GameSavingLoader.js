@@ -5,11 +5,17 @@ export default class GameSavingLoader {
   // eslint-disable-next-line class-methods-use-this
   load() {
     return new Promise((resolve) => {
-      read().then((data) => {
-        json(data).then((value) => {
-          resolve(JSON.parse(value));
-        });
-      });
+      (async () => {
+        try {
+          const data =  await read();
+          const value = await json(data);
+          console.log(JSON.parse(value))
+          resolve(JSON.parse(value))
+        }
+        catch(err) {
+          console.log(err);
+        }
+      })();
     });
   }
 }

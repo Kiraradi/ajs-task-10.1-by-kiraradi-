@@ -2,7 +2,7 @@ import GameSavingLoader from '../src/GameSavingLoader';
 
 jest.setTimeout(15000);
 
-test('test 1', (done) => {
+test('test 1', async(done) => {
   const gameSaving = new GameSavingLoader();
 
   const objTrue = {
