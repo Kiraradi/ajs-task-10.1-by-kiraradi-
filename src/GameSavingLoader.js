@@ -2,8 +2,7 @@ import read from './reader';
 import json from './parser';
 
 export default class GameSavingLoader {
-  // eslint-disable-next-line class-methods-use-this
-  load() {
+  static load() {
     return new Promise((resolve) => {
       (async () => {
         try {
