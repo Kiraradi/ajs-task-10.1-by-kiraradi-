@@ -1,4 +1,10 @@
 import GameSavingLoader from '../src/GameSavingLoader';
+import read from '../src/reader';
+
+jest.mock('../src/reader');
+beforeEach(() => {
+  jest.resetAllMocks();
+});
 
 jest.setTimeout(15000);
 
@@ -14,4 +20,14 @@ test('test 1', (done) => {
     expect(response).toEqual(objTrue);
     done();
   });
+});
+
+test('test 2', async () => {
+  expect.assertions(1);
+  try {
+    read.mockRejectedValueOnce(new Error('Async error message'));
+    await GameSavingLoader.load();
+  } catch (error) {
+    expect(error).toEqual('oops');
+  }
 });

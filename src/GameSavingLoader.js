@@ -6,11 +6,9 @@ export default class GameSavingLoader {
     try {
       const data = await read();
       const value = await json(data);
-      console.log(JSON.parse(value))
       return JSON.parse(value);
+    } catch (err) {
+      return 'oops';
     }
-    catch(err) {
-      console.log(err);
-    };
   }
 }
