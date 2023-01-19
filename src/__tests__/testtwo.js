@@ -1,8 +1,8 @@
-import GameSavingLoader from '../src/GameSavingLoader';
+import GameSavingLoader from "../GameSavingLoader";
 
 jest.setTimeout(15000);
 
-test('test 1', (done) => {
+test('test without mock', (done) => {
   const objTrue = {
     id: 9,
     created: 1546300800,
@@ -15,3 +15,4 @@ test('test 1', (done) => {
     done();
   });
 });
+
